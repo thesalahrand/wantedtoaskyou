@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootstrap demo</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+    <style>
+      .navbar-desktop .custom-navbar-item[data-has-submenu='true'],
+      .navbar-desktop
+        .custom-navbar-item[data-has-submenu='true']
+        > .custom-navbar-items {
+        width: 220px;
+      }
+
+      .navbar-desktop
+        .custom-navbar-items[data-level='0']
+        > .custom-navbar-item:hover {
+        background-color: var(--bs-gray-200);
+      }
+
+      .navbar-desktop
+        .custom-navbar-items[data-level='1']
+        > .custom-navbar-item:hover,
+      .navbar-desktop
+        .custom-navbar-items[data-level='2']
+        > .custom-navbar-item:hover {
+        background-color: var(--bs-gray-100);
+      }
+
+      .navbar-desktop .custom-navbar-items[data-level='1'],
+      .navbar-desktop .custom-navbar-items[data-level='2'] {
+        width: 100%;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 250ms ease-in-out;
+      }
+
+      .navbar-desktop .custom-navbar-items[data-level='1'] {
+        top: 90%;
+      }
+
+      .navbar-desktop
+        .custom-navbar-items[data-level='2'][data-slide-direction='right'] {
+        left: 90%;
+      }
+
+      .navbar-desktop
+        .custom-navbar-items[data-level='3'][data-slide-direction='right'] {
+        right: 90%;
+      }
+
+      .navbar-desktop
+        .custom-navbar-item:hover
+        > .custom-navbar-items[data-level='1'] {
+        opacity: 1;
+        top: 100%;
+        visibility: visible;
+      }
+
+      .navbar-desktop
+        .custom-navbar-item:hover
+        > .custom-navbar-items[data-level='2'][data-slide-direction='right'] {
+        opacity: 1;
+        left: 100%;
+        visibility: visible;
+      }
+
+      .navbar-desktop
+        .custom-navbar-item:hover
+        > .custom-navbar-items[data-level='2'][data-slide-direction='left'] {
+        opacity: 1;
+        right: 100%;
+        visibility: visible;
+      }
+
+      .navbar-mobile .custom-navbar-items[data-level='0'],
+      .navbar-mobile .custom-navbar-items[data-level='1'] {
+        max-width: 350px;
+        background-color: var(--bs-white);
+        left: -100%;
+        transition: left 250ms ease-in-out;
+      }
+
+      .navbar-mobile .custom-navbar-items[data-level='1'] {
+        z-index: 2;
+      }
+
+      .navbar-mobile .custom-navbar-items[data-level='0'].show,
+      .navbar-mobile .custom-navbar-items[data-level='1'].show {
+        left: 0;
+      }
+
+      .navbar-mobile .custom-navbar-items[data-level='2'] {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 250ms ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-desktop">
+      <div
+        class="container-fluid py-3 d-flex align-items-start justify-content-between"
+      >
+        <a class="custom-navbar-logo" href="#">
+          <img
+            src="https://getbootstrap.com/docs/5.3/assets/brand/bootstrap-logo.svg"
+            alt="Bootstrap"
+            width="40"
+            height="32"
+          />
+        </a>
+
+        <button class="navbar-toggler d-xl-none" type="button">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <ul
+          class="custom-navbar-items d-none d-xl-flex align-items-start list-unstyled mb-0"
+          data-level="0"
+        >
+          <li class="custom-navbar-item me-3 position-relative">
+            <a
+              class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+              href=""
+              >Start</a
+            >
+          </li>
+          <li
+            class="custom-navbar-item me-3 position-relative"
+            data-has-submenu="true"
+          >
+            <a
+              class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+              href=""
+              >Leistungen Übersicht
+              <i class="bi bi-chevron-down ms-2"></i>
+            </a>
+            <ul
+              class="custom-navbar-items position-absolute start-0 list-unstyled mb-0"
+              data-level="1"
+            >
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >Beratung</a
+                >
+              </li>
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >Konstruktion
+                </a>
+              </li>
+              <li class="custom-navbar-item position-relative">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >Produktion
+                  <i class="bi bi-chevron-right ms-2"></i>
+                </a>
+                <ul
+                  class="custom-navbar-items list-unstyled position-absolute top-0"
+                  data-level="2"
+                  data-slide-direction="right"
+                >
+                  <li class="custom-navbar-item">
+                    <a
+                      href=""
+                      class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                      >Rapid-Prototyping</a
+                    >
+                  </li>
+                  <li class="custom-navbar-item">
+                    <a
+                      href=""
+                      class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                      >Serienproduktion</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >Veredelung
+                </a>
+              </li>
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >Montage</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li
+            class="custom-navbar-item me-3 position-relative"
+            data-has-submenu="true"
+          >
+            <a
+              class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+              href=""
+              >Verfahren & Technologien Übersicht
+              <i class="bi bi-chevron-down ms-2"></i>
+            </a>
+            <ul
+              class="custom-navbar-items position-absolute start-0 list-unstyled mb-0"
+              data-level="1"
+            >
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >SAF-Verfahren</a
+                >
+              </li>
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >FDM-Verfahren</a
+                >
+              </li>
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >SLS-Verfahren</a
+                >
+              </li>
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >Polyjet-Verfahren</a
+                >
+              </li>
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >
+                  SLA-Verfahren</a
+                >
+              </li>
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >DLP-Verfahren</a
+                >
+              </li>
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >Veredelung</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li
+            class="custom-navbar-item me-3 position-relative"
+            data-has-submenu="true"
+          >
+            <a
+              class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+              href=""
+              >Case Studies
+              <i class="bi bi-chevron-down ms-2"></i>
+            </a>
+            <ul
+              class="custom-navbar-items position-absolute start-0 list-unstyled mb-0"
+              data-level="1"
+            >
+              <li class="custom-navbar-item">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >Case Study Detail</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li
+            class="custom-navbar-item me-3 position-relative"
+            data-has-submenu="true"
+          >
+            <a
+              class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+              href=""
+              >Übersicht Unternehmen
+              <i class="bi bi-chevron-down ms-2"></i>
+            </a>
+            <ul
+              class="custom-navbar-items position-absolute start-0 list-unstyled mb-0"
+              data-level="1"
+            >
+              <li class="custom-navbar-item position-relative">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >Karriere
+                  <i class="bi bi-chevron-right ms-2"></i>
+                </a>
+                <ul
+                  class="custom-navbar-items list-unstyled mb-0 position-absolute top-0"
+                  data-level="2"
+                  data-slide-direction="left"
+                >
+                  <li class="custom-navbar-item">
+                    <a
+                      href=""
+                      class="custom-navbar-link p-2 d-block text-decoration-none"
+                      >Stellenangebot</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li class="custom-navbar-item position-relative">
+                <a
+                  href=""
+                  class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                  >Insights
+                  <i class="bi bi-chevron-right ms-2"></i>
+                </a>
+                <ul
+                  class="custom-navbar-items list-unstyled mb-0 position-absolute top-0"
+                  data-level="2"
+                  data-slide-direction="left"
+                >
+                  <li class="custom-navbar-item">
+                    <a
+                      href=""
+                      class="custom-navbar-link p-2 d-block text-decoration-none"
+                      >Insight Detail</a
+                    >
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <nav class="navbar-mobile d-xl-none">
+      <ul
+        class="custom-navbar-items position-fixed top-0 min-vh-100 w-100 border border-end list-unstyled mb-0"
+        data-level="0"
+      >
+        <li class="custom-navbar-item position-relative">
+          <a
+            class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+            href=""
+            >Start</a
+          >
+        </li>
+        <li
+          class="custom-navbar-item position-relative"
+          data-has-submenu="true"
+        >
+          <a
+            class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+            href="javascript:void(0)"
+            >Leistungen Übersicht
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a>
+          <ul
+            class="custom-navbar-items position-fixed top-0 min-vh-100 w-100 border border-end list-unstyled mb-0"
+            data-level="1"
+          >
+            <li class="custom-navbar-item go-back-btn">
+              <a
+                href="javascript:void(0)"
+                class="custom-navbar-link p-2 w-100 d-flex bg-dark p-2 align-items-center text-decoration-none text-white"
+                ><i class="bi bi-arrow-left me-2"></i> Back</a
+              >
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >Beratung</a
+              >
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >Konstruktion
+              </a>
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href="javascript:void(0)"
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >Produktion
+                <i class="bi bi-plus ms-2"></i>
+              </a>
+              <ul
+                class="custom-navbar-items list-unstyled mb-0 ms-3"
+                data-level="2"
+              >
+                <li class="custom-navbar-item">
+                  <a
+                    href=""
+                    class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                    >Rapid-Prototyping</a
+                  >
+                </li>
+                <li class="custom-navbar-item">
+                  <a
+                    href=""
+                    class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                    >Serienproduktion</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >Veredelung
+              </a>
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >Montage</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li
+          class="custom-navbar-item position-relative"
+          data-has-submenu="true"
+        >
+          <a
+            class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+            href="javascript:void(0)"
+            >Verfahren & Technologien Übersicht
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a>
+          <ul
+            class="custom-navbar-items position-fixed top-0 min-vh-100 w-100 border border-end list-unstyled mb-0"
+            data-level="1"
+          >
+            <li class="custom-navbar-item go-back-btn">
+              <a
+                href="javascript:void(0)"
+                class="custom-navbar-link p-2 w-100 d-flex bg-dark p-2 align-items-center text-decoration-none text-white"
+                ><i class="bi bi-arrow-left me-2"></i> Back</a
+              >
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >SAF-Verfahren</a
+              >
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >FDM-Verfahren</a
+              >
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >SLS-Verfahren</a
+              >
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >Polyjet-Verfahren</a
+              >
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+              >
+                SLA-Verfahren</a
+              >
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >DLP-Verfahren</a
+              >
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >Veredelung</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li
+          class="custom-navbar-item position-relative"
+          data-has-submenu="true"
+        >
+          <a
+            class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+            href="javascript:void(0)"
+            >Case Studies
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a>
+          <ul
+            class="custom-navbar-items position-fixed top-0 min-vh-100 w-100 border border-end list-unstyled mb-0"
+            data-level="1"
+          >
+            <li class="custom-navbar-item go-back-btn">
+              <a
+                href="javascript:void(0)"
+                class="custom-navbar-link p-2 w-100 d-flex bg-dark p-2 align-items-center text-decoration-none text-white"
+                ><i class="bi bi-arrow-left me-2"></i> Back</a
+              >
+            </li>
+            <li class="custom-navbar-item">
+              <a
+                href=""
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >Case Study Detail</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li
+          class="custom-navbar-item position-relative"
+          data-has-submenu="true"
+        >
+          <a
+            class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+            href="javascript:void(0)"
+            >Übersicht Unternehmen
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a>
+          <ul
+            class="custom-navbar-items position-fixed top-0 min-vh-100 w-100 border border-end list-unstyled mb-0"
+            data-level="1"
+          >
+            <li class="custom-navbar-item go-back-btn">
+              <a
+                href="javascript:void(0)"
+                class="custom-navbar-link p-2 w-100 d-flex bg-dark p-2 align-items-center text-decoration-none text-white"
+                ><i class="bi bi-arrow-left me-2"></i> Back</a
+              >
+            </li>
+            <li class="custom-navbar-item position-relative">
+              <a
+                href="javascript:void(0)"
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >Karriere
+                <i class="bi bi-plus ms-2"></i>
+              </a>
+              <ul
+                class="custom-navbar-items list-unstyled mb-0 ms-3"
+                data-level="2"
+              >
+                <li class="custom-navbar-item">
+                  <a
+                    href=""
+                    class="custom-navbar-link p-2 d-block text-decoration-none"
+                    >Stellenangebot</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="custom-navbar-item position-relative">
+              <a
+                href="javascript:void(0)"
+                class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                >Insights
+                <i class="bi bi-plus ms-2"></i>
+              </a>
+              <ul
+                class="custom-navbar-items list-unstyled mb-0 ms-3"
+                data-level="2"
+              >
+                <li class="custom-navbar-item">
+                  <a
+                    href=""
+                    class="custom-navbar-link p-2 d-block text-decoration-none"
+                    >Insight Detail</a
+                  >
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const level0CustomNavbarItemsEl = document.querySelector(
+          '.navbar-mobile .custom-navbar-items[data-level="0"]'
+        )
+        const level1CustomNavbarItemsEls = document.querySelectorAll(
+          '.navbar-mobile .custom-navbar-items[data-level="1"]'
+        )
+        const level0CustomNavbarItemEls = document.querySelectorAll(
+          '.navbar-mobile .custom-navbar-items[data-level="0"] > .custom-navbar-item'
+        )
+        const level1CustomNavbarItemEls = document.querySelectorAll(
+          '.navbar-mobile .custom-navbar-items[data-level="1"] > .custom-navbar-item'
+        )
+
+        //
+        const navbarTogglerEl = document.querySelector('.navbar-toggler')
+        navbarTogglerEl.addEventListener('click', function () {
+          console.log('1')
+
+          level1CustomNavbarItemsEls.forEach(function (
+            level1CustomNavbarItemsEl
+          ) {
+            level1CustomNavbarItemsEl.classList.remove('show')
+          })
+          level0CustomNavbarItemsEl.classList.toggle('show')
+        })
+
+        //
+        level0CustomNavbarItemEls.forEach(function (level0CustomNavbarItemEl) {
+          level0CustomNavbarItemEl.addEventListener('click', function (e) {
+            if (e.target.closest('.go-back-btn')) return
+
+            const level1CustomNavbarItemsEl =
+              level0CustomNavbarItemEl.querySelector(
+                '.custom-navbar-items[data-level="1"]'
+              )
+            if (level1CustomNavbarItemsEl) {
+              level0CustomNavbarItemsEl.classList.remove('show')
+              level1CustomNavbarItemsEl.classList.add('show')
+            }
+          })
+        })
+
+        //
+        level1CustomNavbarItemEls.forEach(function (level1CustomNavbarItemEl) {
+          level1CustomNavbarItemEl.addEventListener('click', function () {
+            const level2CustomNavbarItemsEl =
+              level1CustomNavbarItemEl.querySelector(
+                '.custom-navbar-items[data-level="2"]'
+              )
+
+            if (level2CustomNavbarItemsEl) {
+              if (level2CustomNavbarItemsEl.style.maxHeight) {
+                level2CustomNavbarItemsEl.style.maxHeight = null
+              } else {
+                level2CustomNavbarItemsEl.style.maxHeight =
+                  level2CustomNavbarItemsEl.scrollHeight + 'px'
+              }
+            }
+          })
+        })
+
+        //
+        const goBackBtns = document.querySelectorAll('.go-back-btn')
+        goBackBtns.forEach(function (goBackBtn) {
+          goBackBtn.addEventListener('click', function () {
+            const level1CustomNavbarItemsEl = goBackBtn.closest(
+              '.custom-navbar-items'
+            )
+
+            level1CustomNavbarItemsEl.classList.remove('show')
+            level0CustomNavbarItemsEl.classList.add('show')
+          })
+        })
+      })
+
+      document.addEventListener('click', function (e) {
+        if (
+          !e.target.closest('.navbar-mobile') &&
+          !e.target.closest('.navbar-toggler')
+        ) {
+          const openedCustomNavbarItemsEls = document.querySelectorAll(
+            '.navbar-mobile .custom-navbar-items.show'
+          )
+          openedCustomNavbarItemsEls.forEach(function (
+            openedCustomNavbarItemsEl
+          ) {
+            openedCustomNavbarItemsEl.classList.remove('show')
+          })
+        }
+      })
+    </script>
+  </body>
+</html>
