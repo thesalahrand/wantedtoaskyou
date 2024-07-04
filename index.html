@@ -33,12 +33,16 @@
         > .custom-navbar-item:hover,
       .navbar-desktop
         .custom-navbar-items[data-level='2']
+        > .custom-navbar-item:hover,
+      .navbar-desktop
+        .custom-navbar-items[data-level='3']
         > .custom-navbar-item:hover {
         background-color: var(--bs-gray-100);
       }
 
       .navbar-desktop .custom-navbar-items[data-level='1'],
-      .navbar-desktop .custom-navbar-items[data-level='2'] {
+      .navbar-desktop .custom-navbar-items[data-level='2'],
+      .navbar-desktop .custom-navbar-items[data-level='3'] {
         width: 100%;
         opacity: 0;
         visibility: hidden;
@@ -50,12 +54,16 @@
       }
 
       .navbar-desktop
-        .custom-navbar-items[data-level='2'][data-slide-direction='right'] {
+        .custom-navbar-items[data-level='2'][data-slide-direction='right'],
+      .navbar-desktop
+        .custom-navbar-items[data-level='3'][data-slide-direction='right'] {
         left: 90%;
       }
 
       .navbar-desktop
-        .custom-navbar-items[data-level='3'][data-slide-direction='right'] {
+        .custom-navbar-items[data-level='3'][data-slide-direction='left'],
+      .navbar-desktop
+        .custom-navbar-items[data-level='3'][data-slide-direction='left'] {
         right: 90%;
       }
 
@@ -69,7 +77,10 @@
 
       .navbar-desktop
         .custom-navbar-item:hover
-        > .custom-navbar-items[data-level='2'][data-slide-direction='right'] {
+        > .custom-navbar-items[data-level='2'][data-slide-direction='right'],
+      .navbar-desktop
+        .custom-navbar-item:hover
+        > .custom-navbar-items[data-level='3'][data-slide-direction='right'] {
         opacity: 1;
         left: 100%;
         visibility: visible;
@@ -77,7 +88,10 @@
 
       .navbar-desktop
         .custom-navbar-item:hover
-        > .custom-navbar-items[data-level='2'][data-slide-direction='left'] {
+        > .custom-navbar-items[data-level='2'][data-slide-direction='left'],
+      .navbar-desktop
+        .custom-navbar-item:hover
+        > .custom-navbar-items[data-level='3'][data-slide-direction='left'] {
         opacity: 1;
         right: 100%;
         visibility: visible;
@@ -100,7 +114,8 @@
         left: 0;
       }
 
-      .navbar-mobile .custom-navbar-items[data-level='2'] {
+      .navbar-mobile .custom-navbar-items[data-level='2'],
+      .navbar-mobile .custom-navbar-items[data-level='3'] {
         max-height: 0;
         overflow: hidden;
         transition: max-height 250ms ease-out;
@@ -142,7 +157,7 @@
           >
             <a
               class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
-              href=""
+              href="javascript:void(0)"
               >Leistungen Übersicht
               <i class="bi bi-chevron-down ms-2"></i>
             </a>
@@ -166,7 +181,7 @@
               </li>
               <li class="custom-navbar-item position-relative">
                 <a
-                  href=""
+                  href="javascript:void(0)"
                   class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
                   >Produktion
                   <i class="bi bi-chevron-right ms-2"></i>
@@ -176,19 +191,59 @@
                   data-level="2"
                   data-slide-direction="right"
                 >
-                  <li class="custom-navbar-item">
+                  <li class="custom-navbar-item position-relative">
                     <a
-                      href=""
+                      href="javascript:void(0)"
                       class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
-                      >Rapid-Prototyping</a
+                      >Rapid-Prototyping <i class="bi bi-chevron-right ms-2"></i
+                    ></a>
+                    <ul
+                      class="custom-navbar-items list-unstyled position-absolute top-0"
+                      data-level="3"
+                      data-slide-direction="right"
                     >
+                      <li class="custom-navbar-item">
+                        <a
+                          href=""
+                          class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                          >3.1 Menu Link</a
+                        >
+                      </li>
+                      <li class="custom-navbar-item">
+                        <a
+                          href=""
+                          class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                          >3.2 Menu Link</a
+                        >
+                      </li>
+                    </ul>
                   </li>
-                  <li class="custom-navbar-item">
+                  <li class="custom-navbar-item position-relative">
                     <a
-                      href=""
+                      href="javascript:void(0)"
                       class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
-                      >Serienproduktion</a
+                      >Serienproduktion <i class="bi bi-chevron-right ms-2"></i
+                    ></a>
+                    <ul
+                      class="custom-navbar-items list-unstyled position-absolute top-0"
+                      data-level="3"
+                      data-slide-direction="right"
                     >
+                      <li class="custom-navbar-item">
+                        <a
+                          href=""
+                          class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                          >3.1 Menu Link</a
+                        >
+                      </li>
+                      <li class="custom-navbar-item">
+                        <a
+                          href=""
+                          class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                          >3.2 Menu Link</a
+                        >
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </li>
@@ -214,7 +269,7 @@
           >
             <a
               class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
-              href=""
+              href="javascript:void(0)"
               >Verfahren & Technologien Übersicht
               <i class="bi bi-chevron-down ms-2"></i>
             </a>
@@ -280,7 +335,7 @@
           >
             <a
               class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
-              href=""
+              href="javascript:void(0)"
               >Case Studies
               <i class="bi bi-chevron-down ms-2"></i>
             </a>
@@ -303,7 +358,7 @@
           >
             <a
               class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
-              href=""
+              href="javascript:void(0)"
               >Übersicht Unternehmen
               <i class="bi bi-chevron-down ms-2"></i>
             </a>
@@ -313,19 +368,19 @@
             >
               <li class="custom-navbar-item position-relative">
                 <a
-                  href=""
+                  href="javascript:void(0)"
                   class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
-                  >Karriere
-                  <i class="bi bi-chevron-right ms-2"></i>
+                >
+                  <i class="bi bi-chevron-left me-2"> </i>Karriere
                 </a>
                 <ul
                   class="custom-navbar-items list-unstyled mb-0 position-absolute top-0"
                   data-level="2"
                   data-slide-direction="left"
                 >
-                  <li class="custom-navbar-item">
+                  <li class="custom-navbar-item position-relative">
                     <a
-                      href=""
+                      href="javascript:void(0)"
                       class="custom-navbar-link p-2 d-block text-decoration-none"
                       >Stellenangebot</a
                     >
@@ -334,22 +389,43 @@
               </li>
               <li class="custom-navbar-item position-relative">
                 <a
-                  href=""
+                  href="javascript:void(0)"
                   class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
-                  >Insights
-                  <i class="bi bi-chevron-right ms-2"></i>
+                >
+                  <i class="bi bi-chevron-left me-2"> </i>Insights
                 </a>
                 <ul
                   class="custom-navbar-items list-unstyled mb-0 position-absolute top-0"
                   data-level="2"
                   data-slide-direction="left"
                 >
-                  <li class="custom-navbar-item">
+                  <li class="custom-navbar-item position-relative">
                     <a
-                      href=""
+                      href="javascript:void(0)"
                       class="custom-navbar-link p-2 d-block text-decoration-none"
-                      >Insight Detail</a
                     >
+                      <i class="bi bi-chevron-left me-2"></i> Insight Detail</a
+                    >
+                    <ul
+                      class="custom-navbar-items list-unstyled position-absolute top-0"
+                      data-level="3"
+                      data-slide-direction="left"
+                    >
+                      <li class="custom-navbar-item">
+                        <a
+                          href=""
+                          class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                          >3.1 Menu Link</a
+                        >
+                      </li>
+                      <li class="custom-navbar-item">
+                        <a
+                          href=""
+                          class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                          >3.2 Menu Link</a
+                        >
+                      </li>
+                    </ul>
                   </li>
                 </ul>
               </li>
@@ -419,17 +495,55 @@
               >
                 <li class="custom-navbar-item">
                   <a
-                    href=""
+                    href="javascript:void(0)"
                     class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
-                    >Rapid-Prototyping</a
+                    >Rapid-Prototyping <i class="bi bi-plus ms-2"></i
+                  ></a>
+                  <ul
+                    class="custom-navbar-items list-unstyled mb-0 ms-4"
+                    data-level="3"
                   >
+                    <li class="custom-navbar-item">
+                      <a
+                        href=""
+                        class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                        >3.1 Nav Item</a
+                      >
+                    </li>
+                    <li class="custom-navbar-item">
+                      <a
+                        href=""
+                        class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                        >3.2 Nav Item</a
+                      >
+                    </li>
+                  </ul>
                 </li>
                 <li class="custom-navbar-item">
                   <a
-                    href=""
+                    href="javascript:void(0)"
                     class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
-                    >Serienproduktion</a
+                    >Serienproduktion <i class="bi bi-plus ms-2"></i
+                  ></a>
+                  <ul
+                    class="custom-navbar-items list-unstyled mb-0 ms-4"
+                    data-level="3"
                   >
+                    <li class="custom-navbar-item">
+                      <a
+                        href=""
+                        class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                        >3.1 Nav Item</a
+                      >
+                    </li>
+                    <li class="custom-navbar-item">
+                      <a
+                        href=""
+                        class="custom-navbar-link p-2 w-100 d-flex justify-content-between align-items-center text-decoration-none"
+                        >3.2 Nav Item</a
+                      >
+                    </li>
+                  </ul>
                 </li>
               </ul>
             </li>
@@ -634,15 +748,13 @@
         const level0CustomNavbarItemEls = document.querySelectorAll(
           '.navbar-mobile .custom-navbar-items[data-level="0"] > .custom-navbar-item'
         )
-        const level1CustomNavbarItemEls = document.querySelectorAll(
-          '.navbar-mobile .custom-navbar-items[data-level="1"] > .custom-navbar-item'
+        const exceptLevel0CustomNavbarItemEls = document.querySelectorAll(
+          '.navbar-mobile .custom-navbar-items[data-level="1"] > .custom-navbar-item, .navbar-mobile .custom-navbar-items[data-level="2"] > .custom-navbar-item'
         )
 
         //
         const navbarTogglerEl = document.querySelector('.navbar-toggler')
         navbarTogglerEl.addEventListener('click', function () {
-          console.log('1')
-
           level1CustomNavbarItemsEls.forEach(function (
             level1CustomNavbarItemsEl
           ) {
@@ -654,8 +766,6 @@
         //
         level0CustomNavbarItemEls.forEach(function (level0CustomNavbarItemEl) {
           level0CustomNavbarItemEl.addEventListener('click', function (e) {
-            if (e.target.closest('.go-back-btn')) return
-
             const level1CustomNavbarItemsEl =
               level0CustomNavbarItemEl.querySelector(
                 '.custom-navbar-items[data-level="1"]'
@@ -668,28 +778,47 @@
         })
 
         //
-        level1CustomNavbarItemEls.forEach(function (level1CustomNavbarItemEl) {
-          level1CustomNavbarItemEl.addEventListener('click', function () {
-            const level2CustomNavbarItemsEl =
-              level1CustomNavbarItemEl.querySelector(
+        exceptLevel0CustomNavbarItemEls.forEach(function (
+          exceptLevel0CustomNavbarItemEl
+        ) {
+          exceptLevel0CustomNavbarItemEl.addEventListener(
+            'click',
+            function (e) {
+              e.stopPropagation()
+
+              const childCustomNavbarItemsEl =
+                exceptLevel0CustomNavbarItemEl.querySelector(
+                  '.custom-navbar-items'
+                )
+
+              if (childCustomNavbarItemsEl) {
+                if (childCustomNavbarItemsEl.style.maxHeight) {
+                  childCustomNavbarItemsEl.style.maxHeight = null
+                } else {
+                  childCustomNavbarItemsEl.style.maxHeight =
+                    childCustomNavbarItemsEl.scrollHeight + 'px'
+                }
+              }
+
+              const parentLevel2CustomNavbarItemsEl = e.target.closest(
                 '.custom-navbar-items[data-level="2"]'
               )
-
-            if (level2CustomNavbarItemsEl) {
-              if (level2CustomNavbarItemsEl.style.maxHeight) {
-                level2CustomNavbarItemsEl.style.maxHeight = null
-              } else {
-                level2CustomNavbarItemsEl.style.maxHeight =
-                  level2CustomNavbarItemsEl.scrollHeight + 'px'
-              }
+              setTimeout(() => {
+                if (parentLevel2CustomNavbarItemsEl) {
+                  parentLevel2CustomNavbarItemsEl.style.maxHeight =
+                    parentLevel2CustomNavbarItemsEl.scrollHeight + 'px'
+                }
+              }, 250)
             }
-          })
+          )
         })
 
         //
         const goBackBtns = document.querySelectorAll('.go-back-btn')
         goBackBtns.forEach(function (goBackBtn) {
-          goBackBtn.addEventListener('click', function () {
+          goBackBtn.addEventListener('click', function (e) {
+            e.stopPropagation()
+
             const level1CustomNavbarItemsEl = goBackBtn.closest(
               '.custom-navbar-items'
             )
